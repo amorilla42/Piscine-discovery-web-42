@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<style>
+		body {
+		  display: flex;
+		  flex-direction: column-reverse;
+		  justify-content: center;
+		  background-color:skyblue;
+		  height: 100vh;
+		}
+  
+		.balloon {
+		  width: 200px;
+		  height: 200px;
+		  border-radius: 50%;
+		  background-color: red;
+		  margin: 0 auto;
+		}
+	</style>
+	<script>
+		var inflamiento = 200;
+
+		function inflate(){
+			var globito = document.getElementById("globo");
+			var color = globito.style.backgroundColor || "red";
+			if(color === "red")
+				globito.style.backgroundColor = "green";
+			else if (color === "green")
+				globito.style.backgroundColor = "blue";
+			else
+				globito.style.backgroundColor = "red";
+
+			if((inflamiento + 10)>=420)
+			{
+				inflamiento = 200;
+			}
+			else
+			{
+				inflamiento+=10;
+			}
+			globito.style.width=inflamiento+"px";
+			globito.style.height=inflamiento+"px";
+		}
+
+		function semevaelaire(){
+			var globitopuff = document.getElementById("globo");
+			var color = globitopuff.style.backgroundColor || "red";
+			
+			if(color === "blue")
+				globitopuff.style.backgroundColor = "green";
+			else if (color === "green")
+				globitopuff.style.backgroundColor = "red";
+			else
+				globitopuff.style.backgroundColor = "blue";
+
+			if((inflamiento - 5) < 200)
+			{
+				inflamiento = 200;
+			}
+			else
+			{
+				inflamiento-=5;
+			}
+			globitopuff.style.width=inflamiento+"px";
+			globitopuff.style.height=inflamiento+"px";
+
+		}
+	</script>
+	
+	<head>
+		
+	</head>
+	<body>
+		<div id="globo" class="balloon" onclick="inflate()" onmouseout="semevaelaire()"></div>
+	</body>
+</html>
